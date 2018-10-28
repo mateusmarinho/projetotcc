@@ -45,9 +45,4 @@ function linear_regression($x, $y) {
 
 }
 
-
-function linear_interpolation($a, $b, $c) {
-  
-}
-
 ?>

@@ -22,9 +22,9 @@ header{
 
 header h1 {
 	top:30px;
-	padding: 0 0 0 20px;
+	padding: 0;
+	margin: 0;
 	font-size: 30px;
-
 }
 
 header h2 {
@@ -36,6 +36,11 @@ header h2 {
 
 /************Navegação************/
 
+.navbar {
+	background-color: #96281B;
+	margin: 0 auto;
+}
+
 nav#menu {
 	display: block;
 	margin-left: 50%;
@@ -43,21 +48,21 @@ nav#menu {
 	left: 0px;*/
 }
 
-nav#menu ul{
+nav#menu ul {
 	top:25px;
 	margin: 0;
 	padding: 0 0 0 0;
 	/*list-style: none;*/
 }
 
-nav#menu li{
+nav#menu li {
 	display: inline-block;
 	background-color: #F2784B;
 	padding: 5px;
 	margin: 2px;
 }
 
-nav#menu li a{
+nav#menu li a {
 	color: #FDE3A7;
 	text-decoration: none;
 }
@@ -66,13 +71,60 @@ nav#menu li:hover a {
   color: #96281B;
 }
 
+/************  Conteúdo  ************/
+
+.cta {
+	margin: 0 0 20px 0;
+}
+
+.cta-button {	
+	background-color: #96281B;
+	border: none;
+	border-radius: 10px;
+	color: white;
+	font-size: 32px;
+	padding: 8px 16px;
+}
+
+.cta-title {
+	margin: 20px 0;
+}
+
+.card {	
+	box-sizing: border-box;	
+	font-size: 18px;
+	height: 150px;
+	padding: 10px;
+	text-align: center;
+	width: 150px;
+	margin: 0 20px;
+}
+
+.info-cards {
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	margin: 0 0 30px 0;
+}
+
+.how-to-use {
+	font-size: 24px;
+	margin: 0 auto;
+	text-align: center;
+	margin: 0 0 10px 0;
+}
+
+.material-icons {
+	font-size: 50px;
+}
+
 /************Conteúdo************/
 
 #conteudo
 
 /************Rodapé************/
 
-footer{
+footer {
 	width: 100%;
 	background-color: #96281B;
 	margin: 0 auto;
