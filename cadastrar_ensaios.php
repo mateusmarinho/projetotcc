@@ -94,165 +94,158 @@ require_once 'header.php';
 ?>
 
 
-<section id="principal">
-  <?php print_r($_SESSION['quantCp']) ?>
-  <fieldset>
-    <legend>Cadastro corpo de prova</legend>
-    <form name="cadastroEnsaioM" method="post" action="cadastrar_ensaios.php">
-      <h3>Ensaio Mini-MCV</h3>
-      <label>Operador:
-        <input class="input_text" type="text" name="nomeOperador" value="">
-      </label>
-      <br>
-      <label>Cilindro:
-        <input class="input_text" type="text" name="identCilindro" value="">
-      </label>
-      <br>
-      <label>Massa solo úmido a compactar (g):
-        <input class="input_text" type="text" name="massaUmida" value="">
-      </label>
-      <br>
-      <label>Umidade (%):
-        <input class="input_text" type="text" name="umidade" value="">
-      </label>
-      <br>
-      <label>Área da seção interna do molde (cm²):
-        <input class="input_text" type="text" name="areaMolde" value="">
-      </label>
-      <br>
-      <label>Dados de aferição do equipamento</label><br>
-      <label>Altura do cilindro (mm):
-        <input class="input_text" type="text" name="altCilindro" value="">
-      </label>
-      <br>
-      <label>Leitura de aferição do extensômetro (mm):
-        <input class="input_text" type="text" name="leituraAf" value="">
-      </label>
-      <br>
-      <label>Abaixo, entre com os dados da leitura do extensômetro (em mm) para cada número de golpes do soquete:</label><br>
-      <label>1:
-        <input class="input_text" type="text" name="leitura1" value="">
-      </label>
-      <br>
-      <label>2:
-        <input class="input_text" type="text" name="leitura2" value="">
-      </label>
-      <br>
-      <label>3:
-        <input class="input_text" type="text" name="leitura3" value="">
-      </label>
-      <br>
-      <label>4:
-        <input class="input_text" type="text" name="leitura4" value="">
-      </label>
-      <br>
-      <label>6:
-        <input class="input_text" type="text" name="leitura6" value="">
-      </label>
-      <br>
-      <label>8:
-        <input class="input_text" type="text" name="leitura8" value="">
-      </label>
-      <br>
-      <label>10:
-        <input class="input_text" type="text" name="leitura10" value="">
-      </label>
-      <br>
-      <label>12:
-        <input class="input_text" type="text" name="leitura12" value="">
-      </label>
-      <br>
-      <label>16:
-        <input class="input_text" type="text" name="leitura16" value="">
-      </label>
-      <br>
-      <label>24:
-        <input class="input_text" type="text" name="leitura24" value="">
-      </label>
-      <br>
-      <label>32:
-        <input class="input_text" type="text" name="leitura32" value="">
-      </label>
-      <br>
-      <label>40:
-        <input class="input_text" type="text" name="leitura40" value="">
-      </label>
-      <br>
-      <label>48:
-        <input class="input_text" type="text" name="leitura48" value="">
-      </label>
-      <br>
-      <label>64:
-        <input class="input_text" type="text" name="leitura64" value="">
-      </label>
-      <br>
-      <label>96:
-        <input class="input_text" type="text" name="leitura96" value="">
-      </label>
-      <br>
-      <label>128:
-        <input class="input_text" type="text" name="leitura128" value="">
-      </label>
-      <br>
-      <label>160:
-        <input class="input_text" type="text" name="leitura160" value="">
-      </label>
-      <br>
-      <label>192:
-        <input class="input_text" type="text" name="leitura192" value="">
-      </label>
-      <br>
-      <label>256:
-        <input class="input_text" type="text" name="leitura256" value="">
-      </label>
-      <br>
-      <label>Observações do operador:<br>
-        <textarea class="input_text" name="obs" cols="30" rows="10" value=""></textarea>
-      </label>
-      <br>
+<div id="principal">
+  <h3 id="titulo">Cadastro de corpo de prova</h3>
+  <div>
+    
+  </div>
+  <form name="cadastroEnsaioM" method="post" action="cadastrar_ensaios.php">
+    <fieldset id="dadosMcv">
+      <legend><h4>Ensaio Mini-MCV</h4></legend>
+      <fieldset id="preliminaresMcv">
+        <legend><h5>Dados preliminares</h5></legend>
+        <label><span>Operador</span>
+          <input class="input_text" type="text" name="nomeOperador" value="">
+        </label>
+        <br>
+        <label><span>Cilindro</span>
+          <input class="input_text" type="text" name="identCilindro" value="" required>
+        </label>
+        <br>
+        <label><span>Massa solo úmido a compactar (g)</span>
+          <input class="input_text" type="text" name="massaUmida" value="" required>
+        </label>
+        <br>
+        <label><span>Umidade (%)</span>
+          <input class="input_text" type="text" name="umidade" value="" required>
+        </label>
+        <br>
+        <label><span>Área da seção interna do molde (cm²)</span>
+          <input class="input_text" type="text" name="areaMolde" value="19.60" required>
+        </label>
+        <br>
+      </fieldset>
 
-      <h3>Ensaio Perda de Massa por Imersão</h3>
-      <br>
-      <label>Massa solo seco após compactação (g):
-        <input class="input_text" type="text" name="massaSeca" value="">
-      </label>
-      <br>
-      <label>Massa seca de solo desprendido (g):
-        <input class="input_text" type="text" name="massaDesp" value="">
-      </label>
-      <br>
-      <label>Altura do CP extrudado (mm):
-        <input class="input_text" type="text" name="altExt" value="10">
-      </label>
-      <br>
-      <label>Tipo de desprendimento (fator de correção):</label>
-      <br>
-      <label>
+      <fieldset id="afericaoMcv">
+        <legend><h5>Dados de aferição do equipamento</h5></legend>
+        <label><span>Altura do cilindro (mm)</span>
+          <input class="input_text" type="text" name="altCilindro" value="50" required>
+        </label>
+        <br>
+        <label><span>Leitura de aferição do extensômetro (mm)</span>
+          <input class="input_text" type="text" name="leituraAf" value="" required>
+        </label>
+        <br>
+      </fieldset>
+
+      <fieldset id="leituraMcv">
+        <legend><h5>Dados da leitura do extensômetro (em mm)</h5></legend>
+        <label><span>1</span>
+          <input class="input_text" type="text" name="leitura1" value="" size="6" required>
+        </label>
+        <br>
+        <label class="col2"><span>2</span>
+          <input class="input_text" type="text" name="leitura2" value="" size="6" required>
+        </label>
+        <br>
+        <label><span>3</span>
+          <input class="input_text" type="text" name="leitura3" value="" size="6" required>
+        </label>
+        <br>
+        <label class="col2"><span>4</span>
+          <input class="input_text" type="text" name="leitura4" value="" size="6" required>
+        </label>
+        <br>
+        <label><span>6</span>
+          <input class="input_text" type="text" name="leitura6" value="" size="6" required>
+        </label>
+        <br>
+        <label class="col2"><span>8</span>
+          <input class="input_text" type="text" name="leitura8" value="" size="6" required>
+        </label>
+        <br>
+        <label><span>12</span>
+          <input class="input_text" type="text" name="leitura12" value="" size="6" required>
+        </label>
+        <br>
+        <label class="col2"><span>16</span>
+          <input class="input_text" type="text" name="leitura16" value="" size="6">
+        </label>
+        <br>
+        <label><span>24</span>
+          <input class="input_text" type="text" name="leitura24" value="" size="6">
+        </label>
+        <br>
+        <label class="col2"><span>32</span>
+          <input class="input_text" type="text" name="leitura32" value="" size="6">
+        </label>
+        <br>
+        <label><span>48</span>
+          <input class="input_text" type="text" name="leitura48" value="" size="6">
+        </label>
+        <br>
+        <label class="col2"><span>64</span>
+          <input class="input_text" type="text" name="leitura64" value="" size="6">
+        </label>
+        <br>
+        <label><span>96</span>
+          <input class="input_text" type="text" name="leitura96" value="" size="6">
+        </label>
+        <br>
+        <label class="col2"><span>128</span>
+          <input class="input_text" type="text" name="leitura128" value="" size="6">
+        </label>
+        <br>
+        <label><span>192</span>
+          <input class="input_text" type="text" name="leitura192" value="" size="6">
+        </label>
+        <br>
+        <label class="col2"><span>256</span>
+          <input class="input_text" type="text" name="leitura256" value="" size="6">
+        </label>
+      </fieldset>
+    </fieldset>
+
+    <fieldset id="dadosPi">
+      <legend><h4>Ensaio Perda de Massa por Imersão</h4></legend>
+      <fieldset>
+        <legend><h5>Características</h5></legend>
+        <label><span>Massa solo seco compactado (g)</span>
+          <input class="input_text" type="text" name="massaSeca" value="">
+        </label>
+        <br>
+        <label><span>Massa solo seco desprendido (g)</span>
+          <input class="input_text" type="text" name="massaDesp" value="">
+        </label>
+        <br>
+        <label><span>Altura do CP extrudado (mm)</span>
+          <input class="input_text" type="text" name="altExt" value="10">
+        </label>
+      </fieldset>
+      
+      <fieldset>
+        <legend><h5>Tipo de desprendimento (fator de correção)</h5></legend>
+        <label>
         <input type="radio" name="fatorC" value="normal" required> Normal (fc=1,0)
-      </label>
-      <br>
-      <label>
-        <input type="radio" name="fatorC" value="bloco"> Bloco (fc=0,5)
-      </label>
-      <br>            
-      <label>Observações do operador:<br>
-        <textarea class="input_text" name="obs" cols="30" rows="10" value=""></textarea>
-      </label>
-      <br>
-      <input class="input_button" type="submit" name="cadastrar" value="Cadastrar ensaio">
-      <input type="hidden" name="form_cp_id" value="<?php echo $_SESSION['quantCp']; ?>">
-    </form>
-    <?php
+        </label>
+        <br>
+        <label>
+          <input type="radio" name="fatorC" value="bloco"> Bloco (fc=0,5)
+        </label>
+      </fieldset>
+    </fieldset>
+    <br>
+    <input class="input_button" type="submit" name="cadastrar" value="Cadastrar">
+    <input type="hidden" name="form_cp_id" value="<?php echo $_SESSION['quantCp']; ?>">
+  </form>
+  <?php
 
-    echo "<br>";
+  if ($_SESSION['quantCp'] >= 5) {
+    echo "<a target='_blank' href='tabela_resumo.php'>Terminar ensaio</a>";
+  }
 
-    if ($_SESSION['quantCp'] >= 1) {
-      echo "<a target='_blank' href='tabela_resumo.php'>Terminar ensaio</a>";
-    }
-
-    ?>
-  </fieldset>
-</section>
+  ?>
+</div>
 
 <?php
 
