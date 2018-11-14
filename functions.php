@@ -41,8 +41,12 @@ function linear_regression($x, $y) {
     
   // return result
   return array("m"=>$m, "b"=>$b);
-  //return $m;
 
+}
+
+
+function linear_interpolation($a, $b, $c) {
+  
 }
 
 ?>

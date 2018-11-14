@@ -8,18 +8,16 @@
   <body>
     <div id="container">
       <header>
-        <h1>Projeto TCC</h1>
-        <h2>Ferramenta web para classificação de solos tropicais</h2>
+        <div class="logo">
+          <h1>Projeto TCC</h1>
+        </div>
         <nav id="menu">
           <ul>
             <li>
-              <a href="index.html">Home</a>
+              <a href="index.php">Home</a>
             </li>
             <li>
-              <a href="sobre.html">Sobre</a>
-            </li>
-            <li>
-              <a href="classificacao.html">Classificação dos solos</a>
+              <a href="cadastrar_ensaios.php">Classificação</a>
             </li>
             <li>
               <a href="desenvolvedores.html">Desenvolvedores</a>

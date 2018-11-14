@@ -105,7 +105,6 @@ for ($i=$_SESSION['quantCp'] - 1; $i > 0 ; $i--) {
 }
 
 $_SESSION['amostrax'][$i]['c'] = $coef_c;
-$graf_c = ($coef_c > 3) ? 3 : $coef_c;
 
 /*
 * 
@@ -217,9 +216,8 @@ $coef_e = pow(($pi_final/100 + 20/$coef_d), (1/3));
 $coef_e = round($coef_e, 2);
 $_SESSION['amostrax'][$i]['e'] = $coef_e;
 
-$graf_e = ($coef_e > 2.2) ? 2.2 : $coef_e;
-
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -230,7 +228,7 @@ $graf_e = ($coef_e > 2.2) ? 2.2 : $coef_e;
     window.onload = function () {
 
     var chart = new CanvasJS.Chart("chartContainer", {
-      //animationEnabled: true,
+      animationEnabled: true,
       title: {
         text: "Classificação MCT"
       },
@@ -242,7 +240,7 @@ $graf_e = ($coef_e > 2.2) ? 2.2 : $coef_e;
       axisY: {
         title: "Índice e'",
         minimum: 0.0,
-        maximum: 2.2
+        maximum: 3.0
       },
       legend: {
         verticalAlign: "bottom",
@@ -267,53 +265,6 @@ $graf_e = ($coef_e > 2.2) ? 2.2 : $coef_e;
           { x: 0.6, y: 1.4 },
           { x: 0.7, y: 1.15 },
           { x: 0.7, y: 0.0 }
-        ]
-      },
-      {
-        name: "NA",
-        markerType: "none",
-        showInLegend: true,
-        legendMarkerType: "square",
-        type: "area",
-        color: "rgba(0,75,141,0.7)",
-        markerSize: 0,
-        dataPoints: [
-          { x: 0, y: 2.2 },
-          { x: 0.27, y: 2.2 },
-          { x: 0.45, y: 1.75 },
-          { x: 0.6, y: 1.4 },
-          { x: 0, y: 1.4 }
-        ]
-      },
-      {
-        name: "NS'",
-        markerType: "none",
-        showInLegend: true,
-        legendMarkerType: "square",
-        type: "area",
-        color: "rgba(235,10,60,0.4)",
-        markerSize: 0,
-        dataPoints: [
-          { x: 0.27, y: 2.2 },
-          { x: 0.45, y: 1.75 },
-          { x: 1.5, y: 1.25 },
-          { x: 1.5, y: 2.2 },
-          { x: 0.27, y: 2.2 }
-        ]
-      },
-      {
-        name: "NA'",
-        markerType: "none",
-        showInLegend: true,
-        legendMarkerType: "square",
-        type: "area",
-        color: "rgba(15,125,67,0.7)",
-        markerSize: 0,
-        dataPoints: [
-          { x: 0.45, y: 1.75 },
-          { x: 1.7, y: 1.15 },
-          { x: 0.7, y: 1.15 },
-          { x: 0.45, y: 1.75 }
         ]
       },
       {
@@ -346,6 +297,53 @@ $graf_e = ($coef_e > 2.2) ? 2.2 : $coef_e;
         ]
       },
       {
+        name: "NA",
+        markerType: "none",
+        showInLegend: true,
+        legendMarkerType: "square",
+        type: "area",
+        color: "rgba(0,75,141,0.7)",
+        markerSize: 0,
+        dataPoints: [
+          { x: 0, y: 2.85 },
+          { x: 0.45, y: 1.75 },
+          { x: 0.6, y: 1.4 },
+          { x: 0, y: 1.4 }
+        ]
+      },
+      {
+        name: "NS'",
+        markerType: "none",
+        showInLegend: true,
+        legendMarkerType: "square",
+        type: "area",
+        color: "rgba(235,10,60,0.4)",
+        markerSize: 0,
+        dataPoints: [
+          { x: 0, y: 3 },
+          { x: 0, y: 2.85 },
+          { x: 0.45, y: 1.75 },
+          { x: 1.5, y: 1.25 },
+          { x: 1.5, y: 3 },
+          { x: 0, y: 3 }
+        ]
+      },
+      {
+        name: "NA'",
+        markerType: "none",
+        showInLegend: true,
+        legendMarkerType: "square",
+        type: "area",
+        color: "rgba(15,125,67,0.7)",
+        markerSize: 0,
+        dataPoints: [
+          { x: 0.45, y: 1.75 },
+          { x: 1.7, y: 1.15 },
+          { x: 0.7, y: 1.15 },
+          { x: 0.45, y: 1.75 }
+        ]
+      },
+      {
         name: "NG'",
         markerType: "none",
         showInLegend: true,
@@ -354,12 +352,12 @@ $graf_e = ($coef_e > 2.2) ? 2.2 : $coef_e;
         color: "rgba(255,0,155,0.6)",
         markerSize: 0,
         dataPoints: [
-          { x: 1.5, y: 2.2 },
+          { x: 1.5, y: 3 },
           { x: 1.5, y: 1.25 },
           { x: 1.7, y: 1.15 },
           { x: 3, y: 1.15 },
-          { x: 3, y: 2.2 },
-          { x: 1.5, y: 2.2 }
+          { x: 3, y: 3 },
+          { x: 1.5, y: 3 }
         ]
       },
       {
@@ -370,7 +368,7 @@ $graf_e = ($coef_e > 2.2) ? 2.2 : $coef_e;
         color: "rgba(0,0,0,0.8)",
         markerSize: 7,
         dataPoints: [
-          { x: <?php echo $graf_c; ?>, y: <?php echo $graf_e; ?> }
+          { x: <?php echo $coef_c; ?>, y: <?php echo $coef_e; ?> }
         ]
       }]
     });
@@ -379,20 +377,18 @@ $graf_e = ($coef_e > 2.2) ? 2.2 : $coef_e;
     </script>
   </head>
   <body>
-    <section id="container">
+    <div id="container">
       <header>
-        <h1>Projeto TCC</h1>
-        <h2>Ferramenta web para classificação de solos tropicais</h2>
+        <div class="logo">
+          <h1>Projeto TCC</h1>
+        </div>
         <nav id="menu">
           <ul>
             <li>
-              <a href="index.html">Home</a>
+              <a href="index.php">Home</a>
             </li>
             <li>
-              <a href="sobre.html">Sobre</a>
-            </li>
-            <li>
-              <a href="classificacao.html">Classificação dos solos</a>
+              <a href="cadastrar_ensaios.php">Classificação</a>
             </li>
             <li>
               <a href="desenvolvedores.html">Desenvolvedores</a>
@@ -401,18 +397,18 @@ $graf_e = ($coef_e > 2.2) ? 2.2 : $coef_e;
         </nav>
       </header>
 
-      <section id="principal">
+      <div id="principal">
         <fieldset>
           <legend>Coeficientes e índices</legend>
           <p>c': <?php echo $coef_c; ?></p>
           <p>d': <?php echo $coef_d; ?></p>
-          <p>Pi': <?php echo $pi_final; ?></p>
+          <p>Pi: <?php echo $pi_final; ?></p>
           <p>e': <?php echo $coef_e; ?></p>
         </fieldset>
-        <h1>Gráfico de classificação</h1>
-        <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+        <h3 id="titulo">Gráfico de classificação</h3>
+        <div id="chartContainer" style="height: 300px; width: 80%;"></div>
         <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-      </section>
-    </section>
+      </div>
+    </div>
   </body>
 </html>

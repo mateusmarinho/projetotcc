@@ -7,35 +7,12 @@ require_once 'header.php';
 
 ?>
 
-<section id="principal">
-	<h2>Ensaio Mini-MCV</h2>
+<div id="principal">
 	<hr/>
-	<!--<p>
-		<?php 
-
-		/*$meas_inicial = 0;
-
-		for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) {
-			if ($_SESSION['amostrax'][$i]['golpes'][12]['meas'] > $meas_inicial) {
-				$meas10[$i] = $_SESSION['amostrax'][$i]['golpes'][12]['meas'];
-				$umidades[$i] = $_SESSION['amostrax'][$i]['umidade'];
-				$meas_inicial = $_SESSION['amostrax'][$i]['golpes'][12]['meas'];
-			}
-			else{
-				break;
-			}
-		}
-
-		$coef_d = linear_regression($umidades, $meas10);
-
-		print_r($coef_d);
-		*/
-		?>	
-	</p>-->
-	<table border="1">
-		<tr><th colspan="<?php echo ($_SESSION['quantCp']*4 + 1); ?>">Ensaio Mini-MCV</th></tr>
+	<table id="tabEnsaios" border="0">
+		<tr><th class="titulo" colspan="<?php echo ($_SESSION['quantCp']*4 + 1); ?>">Ensaio Mini-MCV</th></tr>
 		<tr>
-			<th>Cilindro</th>
+			<th class="colEsq">Cilindro</th>
 			<?php
 			
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
@@ -46,7 +23,7 @@ require_once 'header.php';
 
 		</tr>
 		<tr>
-			<th>Massa solo úmido a compactar(g)</th>
+			<th class="colEsq">Massa solo úmido (g)</th>
 			<?php
 			
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
@@ -57,7 +34,7 @@ require_once 'header.php';
 
 		</tr>
 		<tr>
-			<th>Umidade (%)</th>
+			<th class="colEsq">Umidade (%)</th>
 			<?php
 			
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
@@ -65,11 +42,9 @@ require_once 'header.php';
 			}
 						
 			?>
-
-			<!--<td colspan="4"><?php //echo $umidade ?></td>-->
 		</tr>
 		<tr>
-			<th>Ka</th>
+			<th class="colEsq">Ka</th>
 			<?php
 			
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
@@ -82,11 +57,11 @@ require_once 'header.php';
 			?>
 		</tr>
 		<tr>
-			<th>N° de golpes</th>
+			<th class="colEsq">N° de golpes</th>
 			<?php
 			
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
-				echo "<th>Leitura (mm)</th><th>Altura (mm)</th><th>&Delta;h (mm)</th><th>MEAS (g/cm³)</th>" ;
+				echo "<th>Leitura (mm)</th><th>Altura (mm)</th><th>an (mm)</th><th>MEAS (g/cm³)</th>" ;
 			}
 			
 			?>
@@ -98,23 +73,27 @@ require_once 'header.php';
 
 		foreach ($golpes as $value) {
 			echo "<tr>";
-			echo "<th>" . $value . "</th>";
+			echo "<th class='colEsq'>" . $value . "</th>";
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
-				
+				if (is_numeric($_SESSION['amostrax'][$i]['golpes'][$value]['meas'])) {
+					$meas_print = round($_SESSION['amostrax'][$i]['golpes'][$value]['meas'],6);
+				} else {
+					$meas_print = "-";
+				}
 				
 				echo "<td>" . $_SESSION['amostrax'][$i]['golpes'][$value]['leitura'] . "</td>" ;
 				echo "<td>" . $_SESSION['amostrax'][$i]['golpes'][$value]['altura'] . "</td>" ;
 				echo "<td>" . $_SESSION['amostrax'][$i]['golpes'][$value]['an'] . "</td>" ;
-				echo "<td>" . $_SESSION['amostrax'][$i]['golpes'][$value]['meas'] . "</td>" ;
+				echo "<td>" . $meas_print . "</td>" ;
 			
 			}
 			echo "</tr>";
 		}
 
 		?>
-		<tr><th colspan="<?php echo ($_SESSION['quantCp']*4 + 1); ?>">Ensaio Perda de Massa por Imersão</th></tr>
+		<tr><th class="titulo" colspan="<?php echo ($_SESSION['quantCp']*4 + 1); ?>">Ensaio Perda de Massa por Imersão</th></tr>
 		<tr>
-			<th>Comprimento saliente (cm)</th>
+			<th class="colEsq">Comprimento saliente (cm)</th>
 			<?php
 			
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
@@ -124,17 +103,17 @@ require_once 'header.php';
 			?>
 		</tr>
 		<tr>
-			<th>Altura final (cm)</th>
+			<th class="colEsq">Altura final (mm)</th>
 			<?php
 			
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
-				echo "<td colspan = '4'>" . ($_SESSION['amostrax'][$i]['altFinal'] / 10) . "</td>" ;
+				echo "<td colspan = '4'>" . ($_SESSION['amostrax'][$i]['altFinal']) . "</td>" ;
 			}
 			 			
 			?>
 		</tr>
 		<tr>
-			<th>Massa solo saliente (g)</th>
+			<th class="colEsq">Massa solo saliente (g)</th>
 			<?php
 			
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
@@ -144,7 +123,7 @@ require_once 'header.php';
 			?>
 		</tr>
 		<tr>
-			<th>Massa solo seco (g)</th>
+			<th class="colEsq">Massa solo seco (g)</th>
 			<?php
 			
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
@@ -154,21 +133,24 @@ require_once 'header.php';
 			?>
 		</tr>
 		<tr>
-			<th>Perda por Imersão (%)</th>
+			<th class="colEsq">Perda por Imersão (%)</th>
 			<?php
 			
 			for ($i=$_SESSION['quantCp'] ; $i > 0 ; $i--) { 
-				echo "<td colspan = '4'>" . $_SESSION['amostrax'][$i]['pi'] . "</td>" ;
+				echo "<td colspan = '4'>" . round($_SESSION['amostrax'][$i]['pi'],2) . "</td>" ;
 			}
 			 			
 			?>
 		</tr>
 	</table>
-	    	
-</section>
+	<br>
+	<p id="redirText">Para proceder à classificação, clique
+	<a class="redir" href="classificacao.php" name="classificar">Classificação</a></p>    	
+</div>
 
 <br>
-<a href="classificacao.php" name="classificar">Classificação</a>
+<p id="redirText">Para proceder à classificação, clique
+<a class="redir" href="caracterizacao.php" name="classificar">Classificação</a></p>
 	    
 <?php 
 //session_destroy();
