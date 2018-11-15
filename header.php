@@ -9,18 +9,18 @@
     <div id="container">
       <header>
         <div class="logo">
-          <h1>Projeto TCC</h1>
+          <h1>SysTrop</h1>
         </div>
         <nav id="menu">
           <ul>
             <li>
-              <a href="index.php">Home</a>
+              <a href="index.php">HOME</a>
             </li>
             <li>
-              <a href="cadastrar_ensaios.php">Classificação</a>
+              <a href="cadastrar_ensaios.php">CLASSIFICAÇÃO</a>
             </li>
             <li>
-              <a href="desenvolvedores.html">Desenvolvedores</a>
+              <a href="desenvolvedores.html">DESENVOLVEDORES</a>
             </li>
           </ul>
         </nav>
